@@ -365,8 +365,15 @@ const Chat = () => {
         setRestoredQuestion("");
     };
 
-    useEffect(() => chatMessageStreamEnd.current?.scrollIntoView({ behavior: "smooth" }), [isLoading]);
-    useEffect(() => chatMessageStreamEnd.current?.scrollIntoView({ behavior: "auto" }), [streamedAnswers]);
+    // Use block bodies so nothing is returned to React. An expression-bodied effect returns
+    // whatever scrollIntoView() evaluates to, and React treats any non-undefined return value
+    // as the cleanup function and invokes it on unmount ("TypeError: <x> is not a function").
+    useEffect(() => {
+        chatMessageStreamEnd.current?.scrollIntoView({ behavior: "smooth" });
+    }, [isLoading]);
+    useEffect(() => {
+        chatMessageStreamEnd.current?.scrollIntoView({ behavior: "auto" });
+    }, [streamedAnswers]);
     useEffect(() => {
         getConfig();
     }, []);

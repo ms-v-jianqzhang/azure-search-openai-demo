@@ -19,6 +19,7 @@ These are advanced topics that are not necessary for a basic deployment.
 - [Local development](localdev.md)
 - [Customizing the app](customization.md)
 - [App architecture](architecture.md)
+- [Troubleshooting: "Unexpected Application Error!" on Chromium 150+](troubleshooting_chromium150_scrollintoview.md)
 - [HTTP Protocol](http_protocol.md)
 - [Data ingestion](data_ingestion.md)
 - [Evaluation](docs/evaluation.md)
